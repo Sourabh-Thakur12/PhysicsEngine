@@ -26,9 +26,9 @@ void PrintParticles(){
 
 void IntializePartices(){
     for(int i = 0; i< NUM_PARTICLES; i++){
-        particles[i].posttion = (vec2){(float)arc4random_uniform(50), (float)arc4random_uniform(50)}; //arc4random_uniform returns uniform rand values from 0 49
-        particles[i].velocity = (vec2){0, 0};
-        particles[i].mass = 1;
+        particles[i].posttion = (vec2){static_cast<float>(arc4random_uniform(50)), static_cast<float>(arc4random_uniform(50))}; //arc4random_uniform returns uniform rand values from 0 49
+        particles[i].velocity = (vec2){0.0f, 0.0f};
+        particles[i].mass = 1.0f;
     }
 }
 
