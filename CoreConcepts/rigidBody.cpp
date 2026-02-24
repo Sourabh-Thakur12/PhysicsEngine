@@ -92,15 +92,15 @@ void RunRigidBodySimulation()
         {
             RigidBody *rigidBody = &rigidBodies[i];
             ComputeForceAndTorque(rigidBody);
-            vec2 linearAccelearation = (vec2){rigidBody->force.x / rigidBody->shape.mass, rigidBody->force.y / rigidBody->shape.mass};
-            rigidBody->linearVelocity.x += linearAccelearation.x * dt;
+            vec2 linearAccelearation = (vec2){rigidBody->force.x / rigidBody->shape.mass, rigidBody->force.y / rigidBody->shape.mass}; // a = f/m
+            rigidBody->linearVelocity.x += linearAccelearation.x * dt; // v = u + at ; u = 0
             rigidBody->linearVelocity.y += linearAccelearation.y * dt;
 
-            rigidBody->position.x += rigidBody->linearVelocity.x * dt;
+            rigidBody->position.x += rigidBody->linearVelocity.x * dt; // x = vt
             rigidBody->position.y += rigidBody->linearVelocity.y * dt;
 
-            float angularAcceleration = rigidBody->torque / rigidBody->shape.momentOfInertia;
-            rigidBody->angularVelocity += angularAcceleration * dt;
+            float angularAcceleration = rigidBody->torque / rigidBody->shape.momentOfInertia; // tou = I*alpha
+            rigidBody->angularVelocity += angularAcceleration * dt; // omega = alpha * t
             rigidBody->angle += rigidBody->angularVelocity * dt;
         }
 
