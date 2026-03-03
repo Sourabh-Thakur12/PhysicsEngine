@@ -32,7 +32,7 @@ find_package(OpenGL REQUIRED)
 # define MY_SOURCES to list of all src files
 file(GLOB_RECURSE MY_SOURCES CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp")
 
-add_executable(PhysicsEngine src/main.cpp)
+add_executable(PhysicsEngine ${MY_SOURCES})
 
 target_compile_definitions(PhysicsEngine PUBLIC GLFW_INCLUDE_NONE=1)
 
